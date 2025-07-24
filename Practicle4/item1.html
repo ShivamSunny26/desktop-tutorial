@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> A website with horizontal and vertical frames </title>
+    </head>
+
+    <frameset rows = "50%, 50%" border="5"> 
+        <frame name ="top" src="frame_1.html">
+            <frameset cols ="50%, 50%">
+                <frame name = "bottom_left" src="frame_2.html" /> 
+                <frame name="bottom_right" src = "frame_3.html" />
+            </frameset>
+        </frame>
+        <noframe>
+            <body>
+                THe browser you are working does not support frames.
+            </body>
+        </noframe>
+    </frameset>
+</html>
