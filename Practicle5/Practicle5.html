@@ -1,0 +1,276 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <title>
+            Bio Data
+        </title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+        <style>
+            body {
+                background-color: aquamarine;
+                font-family:"Sofia", sans-serif;
+                font-size: 100%;
+            }
+            input {
+                background-color:rgba(73, 159, 225, 0.739);
+            }
+            textarea {
+                background-color: antiquewhite;
+            }
+            select {
+                background-color: bisque;
+                font-family: cursive;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>
+                    Your Name
+                </legend>
+                <label>
+                    First Name:
+                    <input type="text" name="First name" size="10" maxlength="30" required="required" />
+                </label>
+            <br />
+                <label>
+                    Middle Name:
+                    <input type="text" name="Middle name" size="10" maxlength="30" />
+                </label><br />
+                <label>
+                    Last Name:
+                    <input type="text" name="Last name" size="10" maxlength="30" required="required" />
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    Parents Name
+                </legend>
+                <label>
+                    Father's Name:
+                    <input type="text" name="Father's Name" size="20" maxlength="50" required="required" />
+                </label><br /><br />
+                <label>
+                    Mother's Name:
+                    <input type="text" name="Mother's Name" size="20" maxlength="50" required="required" />
+                </label>
+            </fieldset><br />
+            <fieldset>
+                <label>
+                    Date of Birth:
+                    <input type="date" name="DoB" />
+                </label><br /><br />
+                <label>
+                    Gender:
+                    <input type="radio" name="gender" value="male" />
+                    Male
+                    <input type="radio" name="gender" value="female" />
+                    Female
+                    <input type="radio" name="gender" value="other" />
+                    Other
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    Address
+                </legend>
+                <label>
+                    Nationality:
+                    <br />
+                    <input type="radio" name="nationality" value="Indian" checked="checked" /> Indian
+                    <input type="radio" name="nationality" vlaue="Foreigner" /> other Nation 
+                    <br />
+                </label>
+                <br />
+                <label>
+                    State:
+                    <select name="state name">
+                        <option value="">
+                            Select State
+                        </option>
+                        <option value="Assam">
+                            Assam
+                        </option>
+                        <option value="Arunachal Pradesh">
+                            Arunachal Pradesh
+                        </option>
+                        <option value="Andhra Pradesh">
+                            Andhra Pradesh
+                        </option>
+                        <option value="Andaman and Nicobar">
+                            Andaman and Nicobar
+                        </option>
+                        <option value="Bihar">
+                            Bihar
+                        </option>
+                        <option value="Chandigarh">
+                            Chandigarh
+                        </option>
+                        <option value="Chhattisgarh">
+                            Chhattisgarh
+                        </option>
+                        <option value="Dadra & Nagar Haveli and Daman & Diu">
+                            Dadra & Nagar Haveli and Daman & Diu
+                        </option>
+                        <option value="Delhi">
+                            Delhi (NCR)
+                        </option>
+                        <option value="Gujarat">
+                            Gujarat
+                        </option>
+                        <option value="Goa">
+                            Goa
+                        </option>
+                        <option value="Haryana">
+                            Haryana
+                        </option>
+                        <option value="Himachal Pradesh">
+                            Himachal Pradesh
+                        </option>
+                        <option value="Jammu and Kashmir">
+                            Jammu and Kashmir
+                        </option>
+                        <option value="Jharkhand">
+                            Jharkhand
+                        </option>
+                        <option value="Karnataka">
+                            Karnataka
+                        </option>
+                        <option value="Kerala">
+                            Kerala
+                        </option>
+                        <option value="Ladakh">
+                            Ladakh
+                        </option>
+                        <option value="Lakshadweep">
+                            Lakshadweep
+                        </option>
+                        <option value="Maharashtra">
+                            Maharashtra
+                        </option>
+                        <option value="Madhya Pradesh">
+                            Madhya Pradesh
+                        </option>
+                        <option value="Meghalaya">
+                            Meghayala
+                        </option>
+                        <option value="Mizoram">
+                            Mizoram
+                        </option>
+                        <option value="Manipur">
+                            Manipur
+                        </option>
+                        <option value="Nagaland">
+                            Nagaland
+                        </option>
+                        <option value="Odisha">
+                            Odisha
+                        </option>
+                        <option value="Punjab">
+                            Punjab
+                        </option>
+                        <option value="Puducherry">
+                            Punducherry
+                        </option>
+                        <option value="Rajasthan">
+                            Rajasthan
+                        </option>
+                        <option value="Telangana">
+                            Telangana
+                        </option>
+                        <option value="Tamil Nadu">
+                            Tamil Nadu
+                        </option>
+                        <option value="Tripura">
+                            Tripura
+                        </option>
+                        <option value="Sikkim">
+                            Sikkim
+                        </option>
+                        <option value="UttaraKhand">
+                            Uttarakhand
+                        </option>
+                        <option value="Uttar Pradesh">
+                            Uttar Pradesh
+                        </option>
+                        <option value="West Bengal">
+                            West Bengal
+                        </option>
+                    </select>
+                </label>
+                <br />
+                <label>
+                    District:
+                    <input type="text" name="distrct" size="10" maxlength="20" />
+                </label>
+                <br /><br />
+                <textarea name="address" cols="50" rows="5">Enter your full address...
+                </textarea>
+                <br /><br />
+                <label>
+                    Pin/Zip code:
+                    <input type="text" name="postalcode" size="6" maxlength="6" />
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    Contact:
+                </legend>
+                <label>
+                    Mobile no.
+                    <input type="text" name="mobile_number" maxlength="10" required="required" />
+                </label>
+                <br />
+                <label>
+                    Alternative no.
+                    <input type="text" name="alternative_number" maxlength="10" />
+                </label><br />
+                <br />
+                <label>
+                    email id.
+                    <input type="email" name="email_id" size="20" required="required" />
+                </label>
+                <br />
+                <label>
+                    Alternative eamil id.: 
+                    <input type="text" name="alter_email_id" size="20" />
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    Qualification
+                </legend>
+                <label>
+                    10th Board name:
+                    <input type="text" name="10_board" maxlength="100" />
+                    <br /> 
+                </label>
+                <label>
+                    Total marks:
+                    <input type="text" name="total_marks" maxlength="3" />
+                    Marks Obtained:
+                    <input type="text" name="marks_obtained" maxlength="3" />
+                </label>
+                <br /><br />
+                <label>
+                    12th board name:
+                    <input type="text" name="12_board" maxlength="100" />
+                    <br />
+                </label>
+                <label> 
+                    Total marks:
+                    <input type="text" name="total_marks" maxlength="3" />
+                    Marks Obtained:
+                    <input type="text" name="marks_obtained" maxlength="3" />
+                </label>
+            </fieldset>
+            <fieldset>
+                Upload Photo:
+                <input type="file" name="user_photo" /><br/>
+                <input type="submit" value="Upload" />
+            </fieldset>
+        </form>
+    </body>
+</html>
