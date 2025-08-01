@@ -1,0 +1,273 @@
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: rgb(128, 122, 216);
+    }
+
+    /* Style the form elements */
+    form {
+      margin: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    label {
+      display: inline-block;
+      width: 150px;
+      margin: 10px;
+    }
+
+    input,
+    select {
+      width: 200px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: auto;
+    }
+
+    input[type="submit"] {
+      margin-left: 160px;
+    }
+
+    /* Style the error messages */
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <fieldset>
+    <h1>Student Registration Form</h1>
+    <form id="form" onsubmit="return validateForm()">
+      <!-- Roll number field -->
+      <div>
+        <label for="roll">Roll number:</label>
+        <input id="roll" type="text" name="roll" placeholder="Enter 7-digit number">
+        <span id="roll-error" class="error"></span>
+      </div>
+      <!-- Name field -->
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name" placeholder="Enter your name">
+        <span id="name-error" class="error"></span>
+      </div>
+      <!-- Gender field -->
+      <div>
+        <label for="gender">Gender:</label>
+        <input id="male" type="radio" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input id="female" type="radio" name="gender" value="Female">
+        <label for="female">Female</label>
+        <input id="other" type="radio" name="gender" value="Other">
+        <label for="other">Other</label>
+        <span id="gender-error" class="error"></span>
+      </div>
+      <!-- DOB field -->
+      <div>
+        <label for="dob">Date of birth:</label>
+        <input id="dob" type="date" name="dob">
+        <span id="dob-error" class="error"></span>
+      </div>
+      <!-- Course field -->
+      <div>
+        <label for="course">Course:</label>
+        <select id="course" name="course">
+          <option value="">Select a course</option>
+          <option value="B.Tech">B.Tech</option>
+          <option value="M.Tech">M.Tech</option>
+          <option value="MBA">MBA</option>
+          <option value="PhD">PhD</option>
+        </select>
+        <span id="course-error" class="error"></span>
+      </div>
+      <!-- Branch field -->
+      <div>
+        <label for="branch">Branch:</label>
+        <select id="branch" name="branch">
+          <option value="">Select a branch</option>
+          <option value="CSE">CSE</option>
+          <option value="ECE">ECE</option>
+          <option value="ME">ME</option>
+          <option value="CE">CE</option>
+        </select>
+        <span id="branch-error" class="error"></span>
+      </div>
+      <!-- Hobbies field -->
+      <div>
+        <label for="hobbies">Hobbies:</label>
+        <input id="reading" type="checkbox" name="hobbies" value="Reading">
+        <label for="reading">Reading</label>
+        <input id="music" type="checkbox" name="hobbies" value="Music">
+        <label for="music">Music</label>
+        <input id="sports" type="checkbox" name="hobbies" value="Sports">
+        <label for="sports">Sports</label>
+        <input id="art" type="checkbox" name="hobbies" value="Art">
+        <label for="art">Art</label>
+        <span id="hobbies-error" class="error"></span>
+      </div>
+      <!-- Submit button -->
+      <div>
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+    <script>
+      // Get the form elements from the document
+      var form = document.getElementById("form");
+      var roll = document.getElementById("roll");
+      var name = document.getElementById("name");
+      var male = document.getElementById("male");
+      var female = document.getElementById("female");
+      var other = document.getElementById("other");
+      var dob = document.getElementById("dob");
+      var course = document.getElementById("course");
+      var branch = document.getElementById("branch");
+      var reading = document.getElementById("reading");
+      var music = document.getElementById("music");
+      var sports = document.getElementById("sports");
+      var art = document.getElementById("art");
+
+      // Get the error elements from the document
+      var rollError = document.getElementById("roll-error");
+      var nameError = document.getElementById("name-error");
+      var genderError = document.getElementById("gender-error");
+      var dobError = document.getElementById("dob-error");
+      var courseError = document.getElementById("course-error");
+      var branchError = document.getElementById("branch-error");
+      var hobbiesError = document.getElementById("hobbies-error");
+
+      // Define a function to validate the roll number
+      function validateRoll() {
+        // Get the value of the roll number field
+        var rollValue = roll.value;
+
+        // Define a regular expression for a 7-digit numeric value
+        var rollRegex = /^\d{7}$/;
+
+        // Test the roll number value against the regular expression
+        if (rollRegex.test(rollValue)) {
+          // If it matches, clear the error message and return true
+          rollError.textContent = "";
+          return true;
+        } else {
+          // If it does not match, display the error message and return false
+          rollError.textContent = "Please enter a valid 7-digit roll number";
+          return false;
+        }
+      }
+
+      // Define a function to validate the name
+      function validateName() {
+        // Get the value of the name field
+        var nameValue = name.value;
+
+        // Define a regular expression for an alphabetical value
+        var nameRegex = /^[A-Za-z\s]+$/;
+
+        // Test the name value against the regular expression
+        if (nameRegex.test(nameValue)) {
+          // If it matches, clear the error message and return true
+          nameError.textContent = "";
+          return true;
+        } else {
+          // If it does not match, display the error message and return false
+          nameError.textContent = "Please enter a valid name";
+          return false;
+        }
+      }
+
+      // Define a function to validate the gender
+      function validateGender() {
+        // Check if any of the radio buttons are checked
+        if (male.checked || female.checked || other.checked) {
+          // If yes, clear the error message and return true
+          genderError.textContent = "";
+          return true;
+        } else {
+          // If no, display the error message and return false
+          genderError.textContent = "Please select a gender";
+          return false;
+        }
+      }
+
+      // Define a function to validate the date of birth
+      function validateDOB() {
+        // Get the value of the date of birth field
+        var dobValue = dob.value;
+
+        // Check if the date of birth value is not empty
+        if (dobValue) {
+          // If yes, clear the error message and return true
+          dobError.textContent = "";
+          return true;
+        } else {
+          // If no, display the error message and return false
+          dobError.textContent = "Please enter a date of birth";
+          return false;
+        }
+      }
+
+      // Define a function to validate the course
+      function validateCourse() {
+        // Get the value of the course field
+        var courseValue = course.value;
+
+        // Check if the course value is not empty
+        if (courseValue) {
+          // If yes, clear the error message and return true
+          courseError.textContent = "";
+          return true;
+        } else {
+          // If no, display the error message and return false
+          courseError.textContent = "Please select a course";
+          return false;
+        }
+      }
+
+      // Define a function to validate the branch
+      function validateBranch() {
+        // Get the value of the branch field
+        var branchValue = branch.value;
+
+        // Check if the branch value is not empty
+        if (branchValue) {
+          // If yes, clear the error message and return true
+          branchError.textContent = "";
+          return true;
+        } else {
+          // If no, display the error message and return false
+          branchError.textContent = "Please select a branch";
+          return false;
+        }
+      }
+
+      // Define a function to validate the hobbies
+      function validateHobbies() {
+        // Check if any of the checkboxes are checked
+        if (reading.checked || music.checked || sports.checked || art.checked) {
+          // If yes, clear the error message and return true
+          hobbiesError.textContent = "";
+          return true;
+        } else {
+          // If no, display the error message and return false
+          hobbiesError.textContent = "Please select at least one hobby";
+          return false;
+        }
+      }
+
+      // Define a function to validate the whole form
+      function validateForm() {
+        // Call the individual validation functions and store their results
+        var rollValid = validateRoll();
+      }
+    </script>
+  </fieldset>
+</body>
+</html>
+    
+
+    
