@@ -1,0 +1,66 @@
+<html>
+<head>
+  <style>
+    body {
+        background-color: cornflowerblue;
+    }
+    h1 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    h2 {
+        font-family: Arial, Arial, Helvetica, sans-serif
+    }
+    input {
+      width: 150px;
+    }
+    button {
+      margin-left: 10px;
+    }
+    p {
+      font-weight: bold;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: xx-large;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1><i>Find the factorial of a number</h1>
+  <h2>Enter a positive integer:</h2></i>
+  <input id="num" type="number" value="0" min="0">
+  <button id="submit">Submit</button>
+  <p id="result"></p>
+  <script>
+    // Get the elements from the document
+    var num = document.getElementById("num");
+    var submit = document.getElementById("submit");
+    var result = document.getElementById("result");
+
+    // Define a function to find the factorial of a number
+    function factorial(n) {
+      // If n is zero or one, return one
+      if (n === 0 || n === 1) {
+        return 1;
+      }
+      // Otherwise, use recursion to calculate the factorial
+      return n * factorial(n - 1);
+    }
+
+    // Add an event listener to the submit button
+    submit.addEventListener("click", function() {
+      // Get the value of the input field
+      var n = Number(num.value);
+
+      // Check if n is a positive integer
+      if (n >= 0 && Number.isInteger(n)) {
+        // Call the factorial function and display the result
+        var fact = factorial(n);
+        result.textContent = "The factorial of " + n + " is " + fact;
+      } else {
+        // Display an error message
+        result.textContent = "Please enter a valid positive integer";
+      }
+    });
+  </script>
+</body>
+</html>

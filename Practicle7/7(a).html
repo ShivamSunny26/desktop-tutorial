@@ -1,0 +1,100 @@
+
+<html>
+<head>
+  <title>Multiplication Table</title>
+  <style>
+    /* Define some css styles for the elements */
+    body {
+        background-color: rgba(31, 11, 215, 0.414);
+    }
+    h1 {
+      color: blue;
+      text-align: center;
+    }
+
+    p {
+      font-family: Arial;
+      font-size: 18px;
+    }
+
+    input {
+      width: 200px;
+      height: 30px;
+      margin: 10px;
+      border: 2px solid black;
+      border-radius: 10px;
+    }
+
+    button {
+      width: 100px;
+      height: 40px;
+      margin: 10px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: lime;
+    }
+
+    #output {
+      width: 300px;
+      margin: 10px auto;
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Multiplication Table</h1>
+  <p>Enter a number and click the button to see its multiplication table.</p>
+  <input id="input" type="number" placeholder="Enter a number">
+  <button id="button">Print Table</button>
+  <div id="output"></div>
+  <script>
+    // Get the input element
+    var input = document.getElementById("input");
+
+    // Get the button element
+    var button = document.getElementById("button");
+
+    // Get the output element
+    var output = document.getElementById("output");
+
+    // Define a function to print the multiplication table of a number
+    function printTable(num) {
+      // Clear the output element
+      output.innerHTML = "";
+      // Loop from 1 to 10
+      for (var i = 1; i <= 10; i++) {
+        // Create a new paragraph element
+        var p = document.createElement("p");
+        // Set the text content of the paragraph element to the product of num and i
+        p.textContent = num + " x " + i + " = " + (num * i);
+        // Append the paragraph element to the output element
+        output.appendChild(p);
+      }
+    }
+
+    // Add an event listener to the button element
+    button.addEventListener("click", function () {
+      // Get the value of the input element
+      var value = input.value;
+      // Convert the value to a number
+      var number = Number(value);
+      // Check if the value is a valid number
+      if (isNaN(number)) {
+        // Alert the user that the input is not a number
+        alert("Please enter a valid number");
+      } else {
+        // Call the printTable function with the number as an argument
+        printTable(number);
+      }
+    });
+  </script>
+</body>
+</html>

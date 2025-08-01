@@ -1,0 +1,95 @@
+<html>
+<head>
+  <style>
+    body {
+        background-color: antiquewhite;
+    }
+    button {
+      margin: 10px;
+      width: 150px;
+      font-size:large;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    h2 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: medium;
+    }
+    p {
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size:xx-large;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enter a list of positive numbers</h1>
+  <h2>Click the button below to enter a list of positive numbers using the prompt. Enter zero to stop.</h2>
+  <button id="enter">Enter numbers</button>
+  <p id="result"></p>
+  <script>
+    // Get the elements from the document
+    var enter = document.getElementById("enter");
+    var result = document.getElementById("result");
+
+    // Define a function to calculate the sum and average of an array of numbers
+    function sumAndAverage(arr) {
+      // Initialize the sum and the average variables
+      var sum = 0;
+      var average = 0;
+
+      // Loop through the array and add each element to the sum
+      for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+
+      // Calculate the average by dividing the sum by the array length
+      average = sum / arr.length;
+
+      // Return an object with the sum and the average properties
+      return {
+        sum: sum,
+        average: average
+      };
+    }
+
+    // Add an event listener to the enter button
+    enter.addEventListener("click", function() {
+      // Initialize an empty array to store the numbers
+      var numbers = [];
+
+      // Use a while loop to prompt the user for numbers until zero is entered
+      while (true) {
+        // Prompt the user for a number and convert it to a number
+        var num = Number(prompt("Enter a positive number or zero to stop"));
+
+        // Check if the number is valid
+        if (num >= 0 && Number.isFinite(num)) {
+          // Check if the number is zero
+          if (num === 0) {
+            // Break the loop
+            break;
+          } else {
+            // Push the number to the array
+            numbers.push(num);
+          }
+        } else {
+          // Display an error message and continue the loop
+          alert("Please enter a valid positive number or zero");
+          continue;
+        }
+      }
+
+      // Check if the array is not empty
+      if (numbers.length > 0) {
+        // Call the sumAndAverage function and display the result
+        var resultObj = sumAndAverage(numbers);
+        result.textContent = "You entered " + numbers.length + " numbers. The sum is " + resultObj.sum + " and the average is " + resultObj.average.toFixed(2);
+      } else {
+        // Display a message that no numbers were entered
+        result.textContent = "You did not enter any numbers";
+      }
+    });
+  </script>
+</body>
+</html>

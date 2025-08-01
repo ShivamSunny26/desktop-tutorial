@@ -1,0 +1,66 @@
+<html>
+<head>
+  <style>
+    body 
+    {
+        background-color:bisque;
+
+    }
+    input {
+      width: 150px;
+      font-size: large;
+      
+       
+    }
+    button {
+      background-color: aqua;
+      margin-left: 10px;
+      block-size: auto;
+    }
+    p {
+      font-weight: bold;
+      font-size:xx-large;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-style: italic;
+      font-size-adjust: inherit;
+    }
+    input {
+      background-color: aquamarine;
+    }
+  </style>
+</head>
+<body>
+  <h1>Find the largest of three numbers</h1>
+  <h2>Enter three numbers:</h2>
+  <input id="num1" type="number" value="0"><br>
+  <input id="num2" type="number" value="0"><br>
+  <input id="num3" type="number" value="0"><br>
+  <button id="submit">Submit</button>
+  <p id="result"></p>
+  <script>
+    // Get the elements from the document
+    var num1 = document.getElementById("num1");
+    var num2 = document.getElementById("num2");
+    var num3 = document.getElementById("num3");
+    var submit = document.getElementById("submit");
+    var result = document.getElementById("result");
+
+    // Define a function to find the maximum of three numbers
+    function maxOfThree(a, b, c) {
+      return Math.max(a, b, c);
+    }
+
+    // Add an event listener to the submit button
+    submit.addEventListener("click", function() {
+      // Get the values of the input fields
+      var a = Number(num1.value);
+      var b = Number(num2.value);
+      var c = Number(num3.value);
+
+      // Call the maxOfThree function and display the result
+      var max = maxOfThree(a, b, c);
+      result.textContent = "The largest number is " + max;
+    });
+  </script>
+</body>
+</html>
